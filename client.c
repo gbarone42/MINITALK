@@ -6,7 +6,7 @@
 /*   By: gbarone <gbarone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:48:50 by gbarone           #+#    #+#             */
-/*   Updated: 2023/06/26 16:56:01 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/06/26 17:24:01 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,21 @@ void	ft_sender(char message, int PID)
 	int	b;
 
 	b = 0;
+ 		while (message != 0)
+		{
+			if (message & 1)
+				kill(PID, SIGUSR1);
+			else
+				kill(PID, SIGUSR2);
+			usleep(100);      
+			message >>= 1; // Right shift the message to process the next bit
+			b++;
+		}
 	while (b < 8)
 	{
-		if ((message >> b) & 1)
-			kill(PID, SIGUSR1);
-		else
-			kill(PID, SIGUSR2);
-		usleep(100);
-		b++;
+        kill(PID, SIGUSR2);
+        usleep(100);
+ 	       b++;
 	}
 }
 
