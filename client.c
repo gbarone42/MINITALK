@@ -6,7 +6,7 @@
 /*   By: gbarone <gbarone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:48:50 by gbarone           #+#    #+#             */
-/*   Updated: 2023/06/26 18:00:19 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/06/26 18:19:52 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,24 @@ void	p_sender(char *s, int PID)
 	}
 }
 
-void	s_handler(int sig)
+void	s_handler(int signal)
 {
 	static int	status;
 
-	if (sig == SIGUSR1)
+	if (signal == SIGUSR1)
 	{
-		write(1, "→ \n Sending message \n→", 27);
-		status = sig;
+		write(1, "→ \n ..Sending.. \n→", 23);
+		status = signal;
 	}
-	else if (sig == SIGUSR2)
+	else if (signal == SIGUSR2)
 	{
-		status = sig;
-		write(1, "→ \n Message received \n→→→\n", 35);
+		status = signal;
+		write(1, "→ \n ..Received.. \n→→→\n", 31);
 	}
 	else
 	{
 		if (status == 0)
-			ft_printf(" ⚠️ ERROR: ⚠️ ⚠️ \n ⚠️ ...check the PIDocchio...⚠️ \n");
+			write(1," ⚠️ ERROR: ⚠️ ⚠️ \n ⚠️ ...check the PIDocchio...⚠️ \n",72);
 	}
 }
 
