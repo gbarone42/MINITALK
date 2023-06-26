@@ -6,7 +6,7 @@
 /*   By: gbarone <gbarone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:48:50 by gbarone           #+#    #+#             */
-/*   Updated: 2023/06/26 18:19:52 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/06/26 18:29:43 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	s_handler(int signal)
 	else
 	{
 		if (status == 0)
-			write(1," ⚠️ ERROR: ⚠️ ⚠️ \n ⚠️ ...check the PIDocchio...⚠️ \n",72);
+			write(1, " ⚠️ ERROR: ⚠️ ⚠️ \n ⚠️ ...check the PIDocchio...⚠️ \n", 72);
 	}
 }
 
@@ -111,10 +111,10 @@ int	main(int ac, char *av[])
 	int		p;
 	char	*cp;
 
-	signal(SIGUSR1, s_handler);
-	signal(SIGUSR2, s_handler);
 	if (bugs(ac, av))
 		exit (1);
+	signal(SIGUSR1, s_handler);
+	signal(SIGUSR2, s_handler);
 	p = ft_atoi(av[1]);
 	cp = ft_itoa(getpid());
 	p_sender(cp, p);
