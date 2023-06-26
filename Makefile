@@ -1,20 +1,21 @@
+.PHONY: bonus all clean fclean re
+
 all: server client
 
-server:
-	 make -C functions 
+server: functions/functions.a server.c
 		gcc -Wall -Wextra -Werror server.c functions/functions.a -o server
 
-client: 
+client: functions/functions.a client.c 
+		gcc -Wall -Wextra -Werror client.c functions/functions.a -o client
+
+functions/functions.a:
 	make -C functions
-	gcc -Wall -Wextra -Werror client.c functions/functions.a -o client
 clean:
 	make -C functions clean
+	rm -f server client
 
 fclean: clean
-	rm -f server client 
-	 make -C functions fclean
-
+	make -C functions fclean
+	
 re: fclean all
-
-.PHONY: bonus all clean fclean re
 
