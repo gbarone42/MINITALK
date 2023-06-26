@@ -3,39 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbarone <gbarone@student.42firenze.it>     +#+  +:+       +#+        */
+/*   By: gbarone <gbarone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:48:50 by gbarone           #+#    #+#             */
-/*   Updated: 2023/06/25 20:05:44 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/06/26 16:56:01 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	ft_sender(char str, int PID)
+void	ft_sender(char message, int PID)
 {
-	int	wbit;
+	int	b;
 
-	wbit = 0;
-	while (wbit < 8)
+	b = 0;
+	while (b < 8)
 	{
-		kill(PID, (str >> wbit) & 1 ? SIGUSR1 : SIGUSR2);
+		if ((message >> b) & 1)
+			kill(PID, SIGUSR1);
+		else
+			kill(PID, SIGUSR2);
 		usleep(100);
-		wbit++;
+		b++;
 	}
 }
 
-void	ft_pidsender(char *str, int PID)
+void	p_sender(char *s, int PID)
 {
 	int	pos;
 
 	pos = 0;
 	while (pos < 8)
 	{
-		if (*str)
+		if (*s)
 		{
-			ft_sender(*str, PID);
-			str++;
+			ft_sender(*s, PID);
+			s++;
 		}
 		else
 		{
@@ -45,7 +48,7 @@ void	ft_pidsender(char *str, int PID)
 	}
 }
 
-void	ft_getping(int sig)
+void	s_handler(int sig)
 {
 	static int	status;
 
@@ -66,7 +69,7 @@ void	ft_getping(int sig)
 	}
 }
 
-int	ft_errno(int argc, char **argv)
+int	bugs(int argc, char **argv)
 {
 	char	*pids;
 
@@ -93,24 +96,24 @@ int	ft_errno(int argc, char **argv)
 	return (0);
 }
 
-int	main(int argc, char *argv[])
+int	main(int ac, char *av[])
 {
 	char	*message;
 	int		p;
 	char	*cp;
 
-	signal(SIGUSR1, ft_getping);
-	signal(SIGUSR2, ft_getping);
-	if (ft_errno(argc, argv))
+	signal(SIGUSR1, s_handler);
+	signal(SIGUSR2, s_handler);
+	if (bugs(ac, av))
 		exit (1);
-	p = ft_atoi(argv[1]);
+	p = ft_atoi(av[1]);
 	cp = ft_itoa(getpid());
-	ft_pidsender(cp, p);
-	message = argv[2];
+	p_sender(cp, p);
+	message = av[2];
 	while (*message)
 		ft_sender(*message++, p);
 	ft_sender(0, p);
-	ft_getping(0);
+	s_handler(0);
 	free (cp);
 	return (0);
 }
