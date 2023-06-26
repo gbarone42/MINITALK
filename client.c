@@ -6,7 +6,7 @@
 /*   By: gbarone <gbarone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:48:50 by gbarone           #+#    #+#             */
-/*   Updated: 2023/06/26 17:24:01 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/06/26 18:00:19 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ void	ft_sender(char message, int PID)
 void	p_sender(char *s, int PID)
 {
 	int	pos;
+	int	max_pos;
 
 	pos = 0;
-	while (pos < 8)
+	max_pos = 8;
+	while (pos < max_pos)
 	{
 		if (*s)
 		{
