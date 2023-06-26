@@ -6,7 +6,7 @@
 /*   By: gbarone <gbarone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:48:50 by gbarone           #+#    #+#             */
-/*   Updated: 2023/06/26 18:29:43 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/06/26 18:42:55 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,18 @@ void	s_handler(int signal)
 
 	if (signal == SIGUSR1)
 	{
-		write(1, "→ \n ..Sending.. \n→", 23);
+		ft_printf("→ \n ..Sending.. \n→");
 		status = signal;
 	}
 	else if (signal == SIGUSR2)
 	{
 		status = signal;
-		write(1, "→ \n ..Received.. \n→→→\n", 31);
+		ft_printf("→ \n ..Received.. \n→→→\n");
 	}
 	else
 	{
 		if (status == 0)
-			write(1, " ⚠️ ERROR: ⚠️ ⚠️ \n ⚠️ ...check the PIDocchio...⚠️ \n", 72);
+			ft_printf(" ⚠️ ERROR: ⚠️ ⚠️ \n ⚠️ ...check the PIDocchio...⚠️ \n");
 	}
 }
 
