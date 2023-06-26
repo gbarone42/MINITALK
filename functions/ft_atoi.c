@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbarone <gbarone@student.42firenze.it>     +#+  +:+       +#+        */
+/*   By: gbarone <gbarone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 18:35:17 by gbarone           #+#    #+#             */
-/*   Updated: 2023/06/25 23:30:11 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/06/26 16:37:23 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 
 int	ft_atoi(const char *str)
 {

@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbarone <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: gbarone <gbarone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 17:53:20 by gbarone           #+#    #+#             */
-/*   Updated: 2022/10/20 17:53:21 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/06/26 16:42:11 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
+/*
 static int	ft_len(int nbr)
 {
 	int len;
@@ -49,10 +51,23 @@ char		*ft_itoa(int n)
 		alpha[0] = '-';
 	return (alpha);
 }
+*/
 
+void	ft_bzero(void *s, size_t n)
+{
+	size_t			i;
+	unsigned char	*r;
 
+	r = (unsigned char *)s;
+	i = 0;
+	while (n > 0)
+	{
+		r[i] = '\0';
+		i++;
+		n--;
+	}
+}
 
-/*
 static int	ft_mbcount(long int n)
 {
 	int	count;
@@ -108,22 +123,6 @@ void	*ft_calloc(size_t count, size_t size)
 	return (p);
 }
 
-void	ft_bzero(void *s, size_t n)
-{
-	size_t			i;
-	unsigned char	*r;
-
-	r = (unsigned char *)s;
-	i = 0;
-	while (n > 0)
-	{
-		r[i] = '\0';
-		i++;
-		n--;
-	}
-}
-
-
 char	*ft_itoa(int n)
 {
 	char		*k;
@@ -137,4 +136,4 @@ char	*ft_itoa(int n)
 		return (NULL);
 	ft_reverse(l, k);
 	return (k);
-}*/
+}

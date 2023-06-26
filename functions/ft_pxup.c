@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pxup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbarone <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: gbarone <gbarone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 22:03:57 by gbarone           #+#    #+#             */
-/*   Updated: 2022/11/11 22:08:17 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/06/26 16:33:31 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_pxup(unsigned int nbr, int fd)
-{	
+{
 	int	count;
 
 	count = 0;

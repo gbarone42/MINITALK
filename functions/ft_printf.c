@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbarone <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: gbarone <gbarone@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:29:27 by gbarone           #+#    #+#             */
-/*   Updated: 2022/11/10 20:29:29 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/06/26 16:37:57 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	ft_printf(const char *str, ...)
 		{
 			count += ft_formatspecifier(str[i + 1], &args);
 			i++;
-		}		
+		}
 		else
 			count += ft_putchar_fd(str[i], 1);
 		i++;
