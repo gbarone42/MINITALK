@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbarone <gbarone@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gbarone <gbarone@student.42firenze.it>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:48:15 by gbarone           #+#    #+#             */
-/*   Updated: 2023/06/26 18:36:23 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/07/03 18:21:31 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int	ft_transpid(char n)
+int	extract_pid(char n)
 {
 	static char	pid[8];
 	static int	pos;
@@ -31,7 +31,7 @@ int	ft_transpid(char n)
 	return (0);
 }
 
-char	add_bit(int bit)
+char	countbit(int bit)
 {
 	char	res;
 
@@ -49,11 +49,11 @@ void	s_hand(int sig)
 
 	bit++;
 	if (sig == SIGUSR1)
-		let += add_bit(bit);
+		let += countbit(bit);
 	if (bit == 8)
 	{
 		if (clpid == 0)
-			clpid = ft_transpid(let);
+			clpid = extract_pid(let);
 		else if (let == 0)
 		{
 			kill(clpid, SIGUSR2);
@@ -76,3 +76,17 @@ int	main(void)
 	}
 	return (0);
 }
+/*
+Server-side
+    Implementation of a communication protocol using signals
+
+                 Functions:
+ 
+                      handling signals s_hand(📶)
+                      for calculating bit positions countbit(🔍)
+                      extracting the client's process ID extract_pid(🔬);
+                 Main:
+                      prints the server's PID, registers the signal handler,infinite loop to wait for signals.
+
+Complements the client program for message exchange.
+*/

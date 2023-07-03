@@ -6,7 +6,7 @@
 /*   By: gbarone <gbarone@student.42firenze.it>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:48:50 by gbarone           #+#    #+#             */
-/*   Updated: 2023/07/03 18:01:04 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/07/03 18:11:35 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	main(int ac, char *av[])
 	char	*mssg;
 	int		p;
 	char	*cp;
-	//minitalk
+
 	if (bugs(ac, av))
 		exit (1);
 	signal(SIGUSR1, s_handler);
@@ -127,8 +127,8 @@ int	main(int ac, char *av[])
 	return (0);
 }
 /*
-
-Implementation of a communication protocol between two processes using signals
+Client-side
+    Implementation of a communication protocol using signals
 
                  Functions:
  
@@ -136,6 +136,6 @@ Implementation of a communication protocol between two processes using signals
                       handle received signals s_handler(📶);
                       to send messages ft_sender() and p_sender(📩);
                  Main:
-                      function registers the signal handler, validates arguments, and sends messages character by character
+                      function validates arguments,registers the signal handler, sends messages.
 
 */
