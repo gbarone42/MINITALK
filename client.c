@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbarone <gbarone@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gbarone <gbarone@student.42firenze.it>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:48:50 by gbarone           #+#    #+#             */
-/*   Updated: 2023/06/26 18:55:19 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/07/03 17:43:18 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,10 @@ int	bugs(int argc, char **argv)
 
 int	main(int ac, char *av[])
 {
-	char	*message;
+	char	*mssg;
 	int		p;
 	char	*cp;
-
+	//minitalk
 	if (bugs(ac, av))
 		exit (1);
 	signal(SIGUSR1, s_handler);
@@ -118,9 +118,9 @@ int	main(int ac, char *av[])
 	p = ft_atoi(av[1]);
 	cp = ft_itoa(getpid());
 	p_sender(cp, p);
-	message = av[2];
-	while (*message)
-		ft_sender(*message++, p);
+	mssg = av[2];
+	while (*mssg)
+		ft_sender(*mssg++, p);
 	ft_sender(0, p);
 	s_handler(0);
 	free (cp);
