@@ -6,7 +6,7 @@
 /*   By: gbarone <gbarone@student.42firenze.it>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:48:50 by gbarone           #+#    #+#             */
-/*   Updated: 2023/07/03 17:51:27 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/07/03 18:01:04 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,4 +126,16 @@ int	main(int ac, char *av[])
 	free (cp);
 	return (0);
 }
-/*The program implements a communication protocol between two processes using signals*/
+/*
+
+Implementation of a communication protocol between two processes using signals
+
+                 Functions:
+ 
+                      check command-line arguments bugs(🐛);
+                      handle received signals s_handler(📶);
+                      to send messages ft_sender() and p_sender(📩);
+                 Main:
+                      function registers the signal handler, validates arguments, and sends messages character by character
+
+*/
