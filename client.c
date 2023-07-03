@@ -6,7 +6,7 @@
 /*   By: gbarone <gbarone@student.42firenze.it>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:48:50 by gbarone           #+#    #+#             */
-/*   Updated: 2023/07/03 18:11:35 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/07/03 18:22:53 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,5 +137,5 @@ Client-side
                       to send messages ft_sender() and p_sender(📩);
                  Main:
                       function validates arguments,registers the signal handler, sends messages.
-
+..
 */

@@ -6,7 +6,7 @@
 /*   By: gbarone <gbarone@student.42firenze.it>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:48:15 by gbarone           #+#    #+#             */
-/*   Updated: 2023/07/03 18:21:31 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/07/03 18:22:59 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,5 @@ Server-side
                  Main:
                       prints the server's PID, registers the signal handler,infinite loop to wait for signals.
 
-Complements the client program for message exchange.
+Complements the client program for message exchange..
 */
