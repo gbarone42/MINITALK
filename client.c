@@ -6,7 +6,7 @@
 /*   By: gbarone <gbarone@student.42firenze.it>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:48:50 by gbarone           #+#    #+#             */
-/*   Updated: 2023/07/03 17:43:18 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/07/03 17:51:27 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,3 +126,4 @@ int	main(int ac, char *av[])
 	free (cp);
 	return (0);
 }
+/*The program implements a communication protocol between two processes using signals*/
