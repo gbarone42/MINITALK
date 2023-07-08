@@ -76,17 +76,3 @@ int	main(void)
 	}
 	return (0);
 }
-/*
-Server-side
-    Implementation of a communication protocol using signals
-
-                 Functions:
- 
-                      handling signals s_hand(📶)
-                      for calculating bit positions countbit(🔍)
-                      extracting the client's process ID extract_pid(🔬);
-                 Main:
-                      prints the server's PID, registers the signal handler,infinite loop to wait for signals.
-
-Complements the client program for message exchange..
-*/

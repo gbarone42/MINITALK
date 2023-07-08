@@ -6,32 +6,34 @@
 /*   By: gbarone <gbarone@student.42firenze.it>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:48:50 by gbarone           #+#    #+#             */
-/*   Updated: 2023/07/03 18:22:53 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/07/05 00:14:56 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	ft_sender(char message, int PID)
+void	sender(char message, int PID)
 {
-	int	b;
+	int	bit_tracker;
+	int	max_pos;
 
-	b = 0;
+	bit_tracker = 0;
+	max_pos = 8;
 	while (message != 0)
 	{
 		if (message & 1)
 			kill(PID, SIGUSR1);
 		else
 			kill(PID, SIGUSR2);
-		usleep(100);
+		usleep(1000);
 		message >>= 1;
-		b++;
+		bit_tracker++;
 	}
-	while (b < 8)
+	while (bit_tracker < max_pos)
 	{
 		kill(PID, SIGUSR2);
-		usleep(100);
-		b++;
+		usleep(1000);
+		bit_tracker++;
 	}
 }
 
@@ -46,12 +48,12 @@ void	p_sender(char *s, int PID)
 	{
 		if (*s)
 		{
-			ft_sender(*s, PID);
+			sender(*s, PID);
 			s++;
 		}
 		else
 		{
-			ft_sender(0, PID);
+			sender(0, PID);
 		}
 		pos++;
 	}
@@ -120,22 +122,9 @@ int	main(int ac, char *av[])
 	p_sender(cp, p);
 	mssg = av[2];
 	while (*mssg)
-		ft_sender(*mssg++, p);
-	ft_sender(0, p);
+		sender(*mssg++, p);
+	sender(0, p);
 	s_handler(0);
 	free (cp);
 	return (0);
 }
-/*
-Client-side
-    Implementation of a communication protocol using signals
-
-                 Functions:
- 
-                      check command-line arguments bugs(🐛);
-                      handle received signals s_handler(📶);
-                      to send messages ft_sender() and p_sender(📩);
-                 Main:
-                      function validates arguments,registers the signal handler, sends messages.
-..
-*/
