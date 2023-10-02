@@ -1,39 +1,41 @@
+Inter-Process Communication with UNIX Signals (Client-Server Model)
+Overview
+This program demonstrates the power of UNIX signals, specifically SIGUSR1 and SIGUSR2, to enable seamless inter-process communication in a client-server model. Whether you're a seasoned developer or just starting with system programming, you'll find this project intriguing.
 
-UNIX signals SIGUSR1 and SIGUSR2 are used for inter-process communication in a client-server model.
+Server Operation
+Our server program is a masterpiece of asynchronous communication. It elegantly sets up signal handlers and gracefully enters an infinite loop, patiently waiting for incoming signals. This ensures a persistent and responsive communication channel without gobbling up excessive system resources.
 
-Server Operation:
-The server program sets up signal handlers and enters an infinite loop to wait for incoming signals. It responds asynchronously, ensuring a persistent communication channel without excessive resource consumption.
+Extract PID Function
+Meet the extract_pid function! It's like a magician that converts a full process ID (PID) to a numerical integer using ft_atoi and sends a SIGUSR1 signal to that process. Abracadabra!
 
-extract_pid Function:
-This function converts a received full process ID (PID) to an integer using ft_atoi and sends a SIGUSR1 signal to that process.
+Countbit Function
+Do you love playing with bits and bytes? Our countbit function is your trusty sidekick for all your binary operations and bitwise manipulations. It meticulously calculates the decimal value of a given bit and accumulates it in a variable called 'let.' It's like a math wizard for binary data!
 
-countbit Function:
-The countbit function calculates the decimal value of a given bit, accumulating it in the let variable. It helps with binary operations or bitwise manipulations.
+Signal Handlers
+In the world of signals, signal handlers are the gatekeepers. Our program registers these handlers using the signal function, and they swing into action whenever a SIGUSR1 or SIGUSR2 signal is received. They are like the Sherlock Holmes of signals, making decisions based on the type of signal they encounter.
 
-Signal Handlers:
-Signal handlers are registered using the signal function to handle SIGUSR1 and SIGUSR2 signals. They perform actions based on the received signal type.
+Infinite Loop
+Picture our server program as a vigilant guardian, running an infinite loop to continuously listen for signals. It's always on the lookout, ensuring responsiveness even when bombarded with multiple signals.
 
-Infinite Loop:
-The server program runs an infinite loop to continuously wait for signals, ensuring responsiveness to multiple signals.
+Client Operation
+Now, let's talk about the client side! The bugs function is here to ensure that everything runs smoothly. It double-checks the command line arguments, making sure the PID values are valid. If any issues are detected, it exits with a non-zero status. It's like your program's quality control inspector.
 
-Client Operation:
-The bugs function validates command line arguments, checking for issues like invalid PID values. It exits with a non-zero status if problems are found.
+Receiver Process ID
+The receiver process ID is extracted from the command line arguments, converted into an integer, and ready to receive messages. It's like your postal address in the digital world.
 
-Receiver Process ID:
-The receiver process ID is extracted from the command line arguments and converted to an integer.
+Sender Process ID
+The sender process ID is the identity card of our sender program. It's obtained using getpid and transformed into a string. This ID card is sent to the receiver process, like introducing yourself to a new friend.
 
-Sender Process ID:
-The sender process ID is obtained using getpid and converted to a string. It is sent to the receiver process.
+Message Transmission
+Imagine sending secret messages! The sender program sends messages bit by bit. If it's a '1,' it discreetly sends a SIGUSR1 signal; if it's a '0,' a SIGUSR2 signal is dispatched. A brief pause follows each signal, creating a suspenseful atmosphere.
 
-Message Transmission:
-The sender program sends the message bit by bit. If the bit is 1, it sends a SIGUSR1 signal; if 0, a SIGUSR2 signal. A short pause follows each signal.
+Terminating Null Character
+Every great message needs an end, right? A terminating null character (0) is sent to mark the conclusion of your encoded message. It's like signing your name at the end of a letter.
 
-Terminating Null Character:
-A terminating null character (0) is sent to mark the end of the message.
+Signal Functions
+In our toolkit, we have three incredible functions. The "signal" function sets up signal handling, the "kill" function sends signals to specific processes identified by their PIDs, and the "usleep" function introduces delays in program execution, making it a well-timed performance.
 
-Signal Functions:
-The "signal" function sets up signal handling, registering a handler for a specified signal.
-The "kill" function sends a signal to a process identified by a PID.
-The "usleep" function introduces a delay in program execution.
+Conclusion
+This program is a symphony of signals, weaving a tale of inter-process communication and cooperation. Whether you're curious about the magic of signals or a seasoned pro, dive in and explore the enchanting world of UNIX signals!
 
-I hope this provides a concise overview of the program's functionality.
+Feel free to contribute, experiment, and create your own signal-driven stories. Happy coding! 🚀🔮📡🎩🪄
