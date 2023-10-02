@@ -6,7 +6,7 @@
 /*   By: gbarone <gbarone@student.42firenze.it>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:48:50 by gbarone           #+#    #+#             */
-/*   Updated: 2023/06/25 20:14:26 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/10/02 18:39:06 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,5 @@ int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
 
 #endif
+
+//thanks :)
