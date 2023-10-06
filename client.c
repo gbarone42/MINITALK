@@ -6,7 +6,7 @@
 /*   By: gbarone <gbarone@student.42firenze.it>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 17:48:50 by gbarone           #+#    #+#             */
-/*   Updated: 2023/10/02 18:36:28 by gbarone          ###   ########.fr       */
+/*   Updated: 2023/07/05 00:14:56 by gbarone          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,4 +128,3 @@ int	main(int ac, char *av[])
 	free (cp);
 	return (0);
 }
-//thanks :)

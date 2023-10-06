@@ -1,5 +1,3 @@
-# Makefile for a C project
-
 .PHONY: bonus all clean fclean re
 
 CORSIVO='\033[3m'
